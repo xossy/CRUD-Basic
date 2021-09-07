@@ -1,4 +1,5 @@
 <?php
+namespace App\Usuario;
 
 class Usuario{
 
@@ -32,15 +33,4 @@ class Usuario{
 
         $this->senha = md5(trim($senha));
     }
-}
-
-interface UsuarioDAO{
-
-     public function add(Usuario $usuario); 
-     public function findAll();//pegue tudo
-     public function findbyEmail($email);
-     public function findById($id);// buscar por uma pessoa só
-     public function update(Usuario $usuario);
-     public function delete($id);
-     public function deleteTudo();
 }

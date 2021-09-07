@@ -1,7 +1,8 @@
 <?php
 
-require_once 'config.php';
-require_once 'usuarioDaoMysql.php';
+require_once("vendor/autoload.php");
+use usuarioDaoMy\UsuarioDaoMysql\UsuarioDaoMysql;
+use App\Usuario\Usuario;
 
 $usuarioDao = new UsuarioDaoMysql($pdo);
 $id = filter_input(INPUT_POST, 'id');

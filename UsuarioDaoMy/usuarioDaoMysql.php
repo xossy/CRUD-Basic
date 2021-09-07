@@ -1,8 +1,11 @@
 <?php
-require_once 'Usuario.php';
-require_once 'config.php';
+namespace usuarioDaoMy\UsuarioDaoMysql;
 
-class UsuarioDaoMysql implements UsuarioDAO {
+require_once("vendor/autoload.php");
+use PDO;
+use App\Usuario\Usuario;
+
+class UsuarioDaoMysql {
     private $pdo;
 
     public function __construct(PDO $driver) {
@@ -94,3 +97,5 @@ class UsuarioDaoMysql implements UsuarioDAO {
         $this->pdo->query("TRUNCATE TABLE logar"); 
     }
 }
+
+?>

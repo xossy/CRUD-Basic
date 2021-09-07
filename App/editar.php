@@ -1,7 +1,7 @@
 <?php
-require_once 'config.php';
-require_once 'UsuarioDAOMySQL.php';
+require_once("vendor/autoload.php");
 
+use usuarioDaoMy\UsuarioDaoMysql\UsuarioDaoMysql;
 $usuarioDao = new UsuarioDaoMysql($pdo);
 $usuario = false;
 

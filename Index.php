@@ -1,9 +1,13 @@
 <?php
-require_once 'config.php';
-require_once 'usuarioDaoMysql.php';
+require_once("vendor/autoload.php");
 
+use usuarioDaoMy\UsuarioDaoMysql\UsuarioDaoMysql;
+use ConfigMysql\Banco\Banco;
+
+$pdo = Banco::conectar();
 $usuarioDao = new UsuarioDaoMysql($pdo);
 $lista = $usuarioDao->findAll();
+Banco::desconectar();
 
 ?>
 <a href="adicionar.php">ADICIONAR USUÁRIO</a><br/>
