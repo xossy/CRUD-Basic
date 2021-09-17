@@ -1,8 +1,9 @@
 <?php
-require_once("vendor/autoload.php");
 
-use usuarioDaoMy\UsuarioDaoMysql\UsuarioDaoMysql;
-use ConfigMysql\Banco\Banco;
+use App\UsuarioD\UsuarioDaoMysql;
+use App\configMysql\Banco;
+
+require 'vendor/autoload.php';
 
 $pdo = Banco::conectar();
 $usuarioDao = new UsuarioDaoMysql($pdo);
@@ -10,7 +11,7 @@ $lista = $usuarioDao->findAll();
 Banco::desconectar();
 
 ?>
-<a href="adicionar.php">ADICIONAR USUÁRIO</a><br/>
+<a href="App/Views/adicionar.php">ADICIONAR USUÁRIO</a><br/>
 <table border="1" width="100%">
     <tr>
         <th>ID</th>
@@ -24,11 +25,11 @@ Banco::desconectar();
         <td><?php echo $usuario->getEmail();?></td>
         <td><?php echo $usuario->getSenha();?></td>
         <td>
-            <a href="editar.php?id=<?=$usuario->getId();?>"> [ Editar ] </a>
-            <a href="excluir.php?id=<?=$usuario->getId();?>"> [ Excluir ] </a>
+            <a href="App/Views/editar.php?id=<?=$usuario->getId();?>"> [ Editar ] </a>
+            <a href="App/Views/excluir.php?id=<?=$usuario->getId();?>"> [ Excluir ] </a>
         </td>
     </tr>
     <?php endforeach;?>
-    <a href="excluirTudo.php?id"> [ Excluir Tudo ] </a>
+    <a href="APP/Views/excluirTudo.php"> [ Excluir Tudo ] </a>
 </table>
-<a href="excluirTudo.php">Apagar Tudo</a>
+

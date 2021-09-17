@@ -1,13 +1,15 @@
 <?php
-namespace usuarioDaoMy\UsuarioDaoMysql;
+namespace App\UsuarioD;
 
-require_once("vendor/autoload.php");
+require 'C:/xampp/htdocs/DAO/vendor/autoload.php';
+
+use App\Classes\Usuario;
 use PDO;
-use App\Usuario\Usuario;
 
 class UsuarioDaoMysql {
+    
     private $pdo;
-
+    
     public function __construct(PDO $driver) {
         $this->pdo = $driver;
     }

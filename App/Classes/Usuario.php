@@ -1,5 +1,5 @@
 <?php
-namespace App\Usuario;
+namespace App\Classes;
 
 class Usuario{
 
@@ -13,7 +13,7 @@ class Usuario{
     }
     public function setId($id){
 
-        $this->id = trim($id); // o trim vai tirar os espaços é recomendado usar
+        $this->id = trim($id); 
     }
 
     public function getEmail(){

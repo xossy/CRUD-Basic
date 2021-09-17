@@ -1,5 +1,5 @@
 <?php
-namespace ConfigMysql\Banco;
+namespace App\configMysql;
 
 use PDO;
 use PDOException;
@@ -7,9 +7,9 @@ use PDOException;
 class Banco
 {
     private static $dbNome = "usuario";
-    private static $dbHost = "host=127.0.0.1";
+    private static $dbHost = "127.0.0.1";
     private static $dbUsuario = "root";
-    private static $dbSenha = " ";
+    private static $dbSenha = "";
     
     private static $cont = null;
     
@@ -39,6 +39,4 @@ class Banco
         self::$cont = null;
     }
 }
-//$pdo = new PDO("mysql:dbname=usuario; host=127.0.0.1", "root", "");
 ?>
-

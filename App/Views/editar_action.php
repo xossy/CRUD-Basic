@@ -1,10 +1,15 @@
 <?php
 
-require_once("vendor/autoload.php");
-use usuarioDaoMy\UsuarioDaoMysql\UsuarioDaoMysql;
-use App\Usuario\Usuario;
+require 'C:/xampp/htdocs/DAO/vendor/autoload.php';
 
+use App\UsuarioD\UsuarioDaoMysql;
+use App\Classes\Usuario;
+use App\configMysql\Banco;
+
+$pdo = Banco::conectar();
 $usuarioDao = new UsuarioDaoMysql($pdo);
+Banco::desconectar();
+
 $id = filter_input(INPUT_POST, 'id');
 $email = filter_input(INPUT_POST, 'email');
 $senha = filter_input(INPUT_POST, 'senha');
@@ -18,10 +23,10 @@ if($id && $email && $senha){
 
     $usuarioDao->update($usuario);
 
-    header("location: index.php");
+    header("location: ../../Index.php");
     exit;
 }else{
-    header("location: index.php?id=".$id);
+    header("location: ../../Index.php?id=".$id);
     exit;
 }
 

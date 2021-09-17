@@ -1,8 +1,14 @@
 <?php
-require_once("vendor/autoload.php");
 
-use usuarioDaoMy\UsuarioDaoMysql\UsuarioDaoMysql;
+require '../../vendor/autoload.php';
+
+use App\UsuarioD\UsuarioDaoMysql;
+use App\configMysql\Banco;
+
+$pdo = Banco::conectar();
 $usuarioDao = new UsuarioDaoMysql($pdo);
+Banco::desconectar();
+
 $usuario = false;
 
 $id = filter_input(INPUT_GET, 'id');
@@ -11,7 +17,7 @@ if($id){
     $usuario = $usuarioDao->findById($id);
 }
 if($usuario === false){
-    header("location: index.php");
+    header("location: ../../Index.php");
     exit;
 }
 
